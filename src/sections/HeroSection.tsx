@@ -27,16 +27,21 @@ export default function HeroSection() {
       {/* 1. Top band */}
       <div className="relative z-20 shrink-0 bg-[#0C0C0C] pb-6 md:pb-8">
         <FadeIn delay={0} y={-20}>
+          {/* The wordmark is hidden on phones. At 375px the brand plus four
+              links measure 384px against 327px of usable width, so the last
+              link ("Contato") was clipped at the right edge. The headline
+              directly below already says whose site this is, so the wordmark
+              is what gives way. */}
           <nav className="flex items-baseline justify-between gap-4 px-6 pt-6 md:px-10 md:pt-8">
-            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#D7E2EA] md:text-lg lg:text-xl">
+            <span className="hidden text-sm font-semibold uppercase tracking-[0.3em] text-[#D7E2EA] sm:inline md:text-lg lg:text-xl">
               {profile.brand}
             </span>
-            <span className="flex gap-5 md:gap-8">
+            <span className="flex w-full justify-between gap-4 sm:w-auto sm:justify-end sm:gap-5 md:gap-8">
               {nav.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-xs font-medium uppercase tracking-wider text-[#D7E2EA] transition-opacity duration-200 hover:opacity-70 sm:text-sm md:text-base lg:text-lg"
+                  className="text-xs font-medium uppercase tracking-wide text-[#D7E2EA] transition-opacity duration-200 hover:opacity-70 sm:tracking-wider md:text-base lg:text-lg"
                 >
                   {item.label}
                 </a>
