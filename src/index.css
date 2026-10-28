@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  background: #0c0c0c;
+  font-family: 'Kanit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*
+ * Hero height.
+ *
+ * 100vh on iOS Safari means the LARGE viewport, measured with the address bar
+ * and toolbar collapsed. On first paint both are expanded, so a 100vh hero is
+ * taller than what is actually on screen and its bottom band (positioning
+ * line and CTA) sits underneath the browser chrome. 100svh is the small
+ * viewport, which is what the user can really see.
+ *
+ * Both declarations are deliberate and the order matters: a browser that does
+ * not understand svh discards the second line and keeps the vh fallback.
+ */
+.hero-viewport {
+  height: 100vh;
+  height: 100svh;
+}
+
+/*
+ * The gradient headline. Top stop is light enough to clear AA for normal text
+ * against #0C0C0C, so the top of the letters does not dissolve into the page.
+ */
+.hero-heading {
+  background: linear-gradient(180deg, #7c828c 0%, #bbccd7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*
+ * Photo wall. Constant speed, no easing, never tied to scroll: scroll-linked
+ * motion stutters and reverses, which reads as a bug on a hero.
+ */
+.work-track {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* Fallback only. PhotoWall sets the real value per column, solved so the
+     track always has enough copies to cover the window. */
+  --shift: -50%;
+}
+
+@keyframes wall-up {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, var(--shift), 0);
+  }
+}
+
+@keyframes wall-down {
+  from {
+    transform: translate3d(0, var(--shift), 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+::selection {
+  background: #c2763a;
+  color: #fff;
+}
+
+/* Thin scrollbar inside the story panel, so a 100-frame grid does not get a
+   fat grey bar running down the middle of a photo essay. */
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(215, 226, 234, 0.25) transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: rgba(215, 226, 234, 0.25);
+  border-radius: 8px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  /* Freeze the wall on its curated first frame instead of letting the global
+     rule above snap it to the end of the keyframe. The work still shows, it
+     just does not move. */
+  .work-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}

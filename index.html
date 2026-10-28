@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Gus Franco | FRNCO | Fotógrafo e Diretor de Fotografia</title>
+    <meta
+      name="description"
+      content="Gus Franco, FRNCO. Fotógrafo e diretor de fotografia com mais de 15 anos de carreira. Casamento intimista, elopement, destination wedding, retrato e documentário no Brasil e no mundo."
+    />
+    <meta name="author" content="Gustavo Franco" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gusfrn.co/" />
+    <meta property="og:title" content="Gus Franco | FRNCO | Fotógrafo e Diretor de Fotografia" />
+    <meta
+      property="og:description"
+      content="Casamento intimista, elopement, destination wedding, retrato e documentário. Mais de 15 anos contando histórias ao redor do mundo."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn-sites-images.46graus.com/files/photos/aa46d9dd/e5bce29a-7995-479e-bc58-df75bca648a8/lost-in-amsterdam-high-1-2-1024x631.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gus Franco | FRNCO | Fotógrafo e Diretor de Fotografia" />
+    <meta
+      name="twitter:description"
+      content="Casamento intimista, elopement, destination wedding, retrato e documentário. Mais de 15 anos contando histórias ao redor do mundo."
+    />
+    <meta name="theme-color" content="#0C0C0C" />
+
+    <!--
+      The photos are served from the CDN that already hosts them for gusfrn.co.
+      Opening those connections during HTML parse saves the DNS and TLS
+      round-trips that would otherwise delay the first frame of the hero wall.
+    -->
+    <link rel="preconnect" href="https://cdn-sites-images.46graus.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.46graus.com" crossorigin />
+
+    <!--
+      The first four frames of the hero wall, one per column. Without these the
+      images only start downloading after the JS bundle parses and React
+      mounts, which opens the hero on flat black. Keep in sync with the first
+      entries of `heroWall` in src/data/site.ts.
+    -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://cdn-sites-images.46graus.com/files/photos/aa46d9dd/ec96678b-71b7-4127-9baa-d7583c8ff72a/whitedreams-1-1280x1920.jpg"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://cdn-sites-images.46graus.com/files/photos/aa46d9dd/35ddb6e1-4ab0-4d9b-9878-517d88cb1eb9/iceland_gusfranco-155-1024x683.jpg"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://cdn-sites-images.46graus.com/files/photos/aa46d9dd/a9f80f3f-10eb-42af-82b4-ce8da808a694/monks-monge-monges-tailandia-2-1064x1440.jpg"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://cdn-sites-images.46graus.com/files/photos/aa46d9dd/e5bce29a-7995-479e-bc58-df75bca648a8/lost-in-amsterdam-high-1-2-1024x631.jpg"
+      fetchpriority="high"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
