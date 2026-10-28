@@ -11,8 +11,18 @@ npm install
 npm run dev
 ```
 
-`npm run build` gera `dist/`. O push na `main` publica sozinho pelo GitHub
-Pages (ver `.github/workflows/deploy.yml`).
+`npm run build` gera `dist/`. Para publicar:
+
+```bash
+./scripts/publicar.sh
+```
+
+O script faz o build e empurra para o branch `gh-pages`, que e o que o
+GitHub Pages serve. Nao e um GitHub Action porque o token local nao tem o
+escopo `workflow`; para trocar um dia, `gh auth refresh -s workflow` e um
+`.github/workflows/deploy.yml` comum.
+
+No ar em <https://leofranco97.github.io/gus-franco/>.
 
 ## Estrutura
 
